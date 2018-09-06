@@ -1,0 +1,20 @@
+.card, .card-footer{
+    margin-top: 10px;
+}
+
+.card-footer{
+    background-color: #3CB371;
+    cursor: pointer;
+}
+
+.texto-adicionar{
+    color: #ffffff;
+}
+
+.close:hover{
+    color: red;
+}
+
+.clicavel{
+    cursor: pointer;
+}

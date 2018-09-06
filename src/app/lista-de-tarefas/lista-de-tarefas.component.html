@@ -1,0 +1,61 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="card text-center">
+        <div class="card-header">
+          Lista de Tarefas
+        </div>
+        <div class="card-body">
+          <div *ngFor="let tarefa of tarefas" class="card">
+            <div class="card-body text-left">
+              <button (click)="deletar(tarefa.id)" type="button" class="close" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              <div class="clicavel" (click)="modoEdicao(tarefa)" data-toggle="modal" data-target="#exampleModalCenter">
+                <h6 class="card-title">{{tarefa.responsavel}}</h6>
+                <h6 class="card-subtitle mb-2 text-muted">{{tarefa.data | date: 'dd/MM/yyyy'}}</h6>
+                <p class="card-text text-justify">{{tarefa.descricao}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div (click)="modoCadastro()" data-toggle="modal" data-target="#exampleModalCenter" class="card-footer text-muted">
+          <span class="texto-adicionar">Adicionar nova tarefa</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Formulário</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="input-responsavel">Responsável</label>
+            <input [(ngModel)]="cadastroResponsavel" type="text" class="form-control" id="input-responsavel" placeholder="José">
+          </div>
+          <div class="form-group">
+            <label for="input-data">Data</label>
+            <input [(ngModel)]="cadastroData" type="date" class="form-control" id="input-data" placeholder="25/09/2018">
+          </div>
+          <div class="form-group">
+            <label for="input-tarefa">Tarefa</label>
+            <input [(ngModel)]="cadastroTarefa" type="text" class="form-control" id="input-tarefa" placeholder="Fazer compras">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button (click)="cadastrar()" type="button" class="btn btn-primary" data-dismiss="modal">Cadastrar</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+        </div>
+      </div>
+    </div>
+  </div>
