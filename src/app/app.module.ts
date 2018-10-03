@@ -5,8 +5,6 @@ import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { ListaDeTarefasComponent } from './lista-de-tarefas/lista-de-tarefas.component';
-import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { InMemoryDataService } from './service/in-memory-data.service';
 
 @NgModule({
   declarations: [
@@ -16,10 +14,7 @@ import { InMemoryDataService } from './service/in-memory-data.service';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpClientModule,
-    HttpClientInMemoryWebApiModule.forRoot(
-      InMemoryDataService, { dataEncapsulation: false }
-    )
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

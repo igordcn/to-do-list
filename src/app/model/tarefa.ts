@@ -1,3 +1,3 @@
 export class Tarefa{
-    constructor(public id:number, public responsavel:string, public data:string, public descricao:string){}
+    constructor(public _id:string, public responsavel:string, public data:string, public descricao:string){}
 }

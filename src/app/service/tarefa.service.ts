@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { Tarefa } from '../model/tarefa';
-import { catchError } from 'rxjs/operators'
+import { catchError, map } from 'rxjs/operators'
 
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type':'application/json'})
@@ -14,12 +14,13 @@ const httpOptions = {
 
 export class TarefaService {
 
-  url = 'api/tarefas'
+  url = 'http://localhost:3000/tarefas'
 
   constructor(private http:HttpClient) { }
 
   getTarefas():Observable<Tarefa[]>{
     return this.http.get<Tarefa[]>(this.url).pipe(
+      map(data => data['tarefas']),
       catchError(error => {
         console.log(error)
         return of([] as Tarefa[])
@@ -36,7 +37,7 @@ export class TarefaService {
     )
   }
 
-  updateTarefa(tarefa:Tarefa):Observable<any>{
+  updateTarefa(tarefa:Tarefa):Observable<Tarefa>{
     return this.http.put<Tarefa>(this.url, tarefa,httpOptions).pipe(
       catchError(error => {
         console.log(error)
@@ -45,7 +46,7 @@ export class TarefaService {
     )
   }
 
-  deleteTarefa(tarefaid:number):Observable<Tarefa>{
+  deleteTarefa(tarefaid:string):Observable<any>{
     return this.http.delete<Tarefa>(`${this.url}/${tarefaid}`).pipe(
       catchError(error => {
         console.log(error)
