@@ -1,0 +1,14 @@
+h1{
+    padding-top: 25px;
+    margin-bottom: 25px;
+    color: white;
+    text-align: center;
+}
+
+.card{  
+    border: 0;
+}
+
+.btn{
+    margin-top: 15px;
+}

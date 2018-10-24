@@ -2,6 +2,10 @@
     margin-top: 10px;
 }
 
+.sem-borda{
+    border: 0;
+}
+
 .card-footer{
     background-color: #3CB371;
     cursor: pointer;

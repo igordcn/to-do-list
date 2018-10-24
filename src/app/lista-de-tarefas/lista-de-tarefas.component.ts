@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TarefaService } from '../service/tarefa.service';
 import { Tarefa } from '../model/tarefa';
-import { $ } from '../../../node_modules/protractor';
 
 @Component({
   selector: 'app-lista-de-tarefas',
