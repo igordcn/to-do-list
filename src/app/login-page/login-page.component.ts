@@ -4,6 +4,7 @@ import { UsuarioService } from '../service/usuario.service';
 import { Login } from  '../model/login';
 import { Usuario } from '../model/usuario';
 import { Router } from '@angular/router';
+import { AutenticacaoService } from '../service/autenticacao.service';
 
 @Component({
   selector: 'app-login-page',
@@ -23,7 +24,7 @@ export class LoginPageComponent implements OnInit {
     senhaUsuario: ['',[Validators.required, Validators.minLength(4), Validators.maxLength(16)]]
   })
 
-  constructor(private formBuilder:FormBuilder, private usuarioService:UsuarioService, private route:Router) { }
+  constructor(private formBuilder:FormBuilder, private usuarioService:UsuarioService, private route:Router, private authService:AutenticacaoService) { }
 
   ngOnInit() {
     
@@ -34,11 +35,7 @@ export class LoginPageComponent implements OnInit {
   get password() { return this.loginForm.get('password') }
 
   logar(){
-    let login:Login = { email: this.login.value, senha: this.password.value }
-    this.usuarioService.loginUsuario(login).subscribe(
-      log => this.route.navigate(['tarefas']), 
-      httpErrorResponse => alert(httpErrorResponse.error.error)
-    );
+    this.authService.login(this.login.value, this.password.value)
   }
 
   get nomeUsuario(){ return this.registerForm.get('nomeUsuario')}

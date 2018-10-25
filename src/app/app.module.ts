@@ -7,12 +7,14 @@ import { AppComponent } from './app.component';
 import { ListaDeTarefasComponent } from './lista-de-tarefas/lista-de-tarefas.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { AppRoutingModule } from './app-routing.module';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ListaDeTarefasComponent,
-    LoginPageComponent
+    LoginPageComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
