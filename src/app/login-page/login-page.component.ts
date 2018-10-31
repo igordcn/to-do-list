@@ -44,6 +44,14 @@ export class LoginPageComponent implements OnInit {
 
   get senhaUsuario(){ return this.registerForm.get('senhaUsuario')}
 
+  resetarForm(){
+    this.registerForm.patchValue({
+      nomeUsuario: '',
+      emailUsuario: '',
+      senhaUsuario: ''
+    })
+  }
+
   registrar(){
     let usuario:Usuario = 
     { 

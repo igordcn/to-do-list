@@ -19,7 +19,7 @@
               'is-invalid': password.invalid && (password.dirty || password.touched)
             }" id="userPasswordInput" formControlName="password" required>
           </div>
-          <span>Não tem conta? <a href="" data-toggle="modal" data-target="#usuarioModal">Registre-se</a></span>
+          <span>Não tem conta? <a href="" (click)="resetarForm()" data-toggle="modal" data-target="#usuarioModal">Registre-se</a></span>
           <button type="submit" class="btn btn-primary btn-block" [disabled]="!loginForm.valid">Entrar</button>
         </form>
       </div>
